@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import BMICalculator from './components/BMICalculator';
+import NutritionCalculator from './components/NutritionCalculator';
+import HomeWorkout from './components/HomeWorkout';
+import GymWorkout from './components/GymWorkout';
+import MuscleWorkout from './components/MuscleWorkout';
+import Footer from './components/Footer';
+import './index.css';
+
+function HomePage() {
+  return (
+    <>
+      <Hero />
+      <BMICalculator />
+      <NutritionCalculator />
+      <HomeWorkout />
+      <GymWorkout />
+      <MuscleWorkout />
+      <Footer />
+    </>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </Router>
   );
 }
 
