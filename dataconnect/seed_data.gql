@@ -1,0 +1,37 @@
+mutation CreateDemoData @transaction {
+  user_insertMany(data: [
+    {
+      id: "550e8400-e29b-41d4-a716-446655440000",
+      email: "jane.doe@example.com",
+      displayName: "Jane Doe"
+    },
+    {
+      id: "550e8400-e29b-41d4-a716-446655440001",
+      email: "john.smith@example.com",
+      displayName: "John Smith"
+    }
+  ])
+  workoutPlan_insertMany(data: [
+    {
+      id: "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11",
+      name: "Strength Builder",
+      difficultyLevel: "Intermediate",
+      description: "Focus on hypertrophy",
+      durationInWeeks: 8
+    }
+  ])
+  exercise_insertMany(data: [
+    {
+      name: "Bench Press",
+      sets: 3,
+      reps: 10,
+      workoutPlanId: "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"
+    },
+    {
+      name: "Squat",
+      sets: 4,
+      reps: 8,
+      workoutPlanId: "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"
+    }
+  ])
+}

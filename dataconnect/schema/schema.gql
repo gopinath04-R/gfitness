@@ -1,0 +1,44 @@
+type User @table {
+  email: String!
+  displayName: String!
+  height: Float
+  weight: Float
+  dateOfBirth: Date
+}
+
+type WorkoutPlan @table {
+  name: String!
+  difficultyLevel: String!
+  description: String
+  durationInWeeks: Int
+}
+
+type Exercise @table {
+  name: String!
+  sets: Int!
+  reps: Int!
+  workoutPlan: WorkoutPlan!
+}
+
+type NutritionLog @table {
+  date: Date!
+  calories: Int!
+  protein: Float!
+  carbs: Float!
+  fat: Float!
+  user: User!
+}
+
+type ProgressEntry @table {
+  date: Date!
+  weight: Float!
+  bmiScore: Float!
+  user: User!
+}
+
+type WorkoutLog @table {
+  date: Date!
+  completionStatus: Boolean!
+  user: User!
+  workoutPlan: WorkoutPlan!
+}

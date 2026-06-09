@@ -1,0 +1,31 @@
+mutation CreateNutritionLog($date: Date!, $calories: Int!, $protein: Float!, $carbs: Float!, $fat: Float!) @auth(level: USER) {
+  nutritionLog_insert(data: {
+    date: $date,
+    calories: $calories,
+    protein: $protein,
+    carbs: $carbs,
+    fat: $fat,
+    userId_expr: "auth.uid"
+  })
+}
+
+mutation UpdateProgressEntry($id: UUID!, $weight: Float!, $bmiScore: Float!) @auth(level: USER) {
+  progressEntry_update(key: {id: $id}, data: {
+    weight: $weight,
+    bmiScore: $bmiScore
+  })
+}
+
+mutation DeleteWorkoutLog($id: UUID!) @auth(level: USER) {
+  workoutLog_delete(key: {id: $id})
+}
+
+query ListUserNutritionLogs @auth(level: USER) {
+  nutritionLogs(where: {userId: {eq_expr: "auth.uid"}}) {
+    date
+    calories
+    protein
+    carbs
+    fat
+  }
+}

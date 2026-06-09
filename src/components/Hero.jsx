@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function RunningHamster() {
   const [frame, setFrame] = useState(0);
@@ -196,7 +196,7 @@ export default function Hero() {
   useEffect(() => {
     const t = setInterval(() => setMsgIdx(i => (i + 1) % msgs.length), 1800);
     return () => clearInterval(t);
-  }, []);
+  }, [msgs.length]);
 
   useEffect(() => {
     const cursor = document.querySelector('.cursor');
