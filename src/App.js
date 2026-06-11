@@ -8,6 +8,7 @@ import NutritionCalculator from './components/NutritionCalculator';
 import HomeWorkout from './components/HomeWorkout';
 import GymWorkout from './components/GymWorkout';
 import MuscleWorkout from './components/MuscleWorkout';
+import WorkoutTimer from './components/WorkoutTimer';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import './index.css';
@@ -21,6 +22,7 @@ function HomePage() {
       <HomeWorkout />
       <GymWorkout />
       <MuscleWorkout />
+      <WorkoutTimer />
       <Footer />
     </>
   );
